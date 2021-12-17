@@ -66,7 +66,6 @@ Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windo
 Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Sources\Peernet\PeernetFullAppOutput\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\Sources\Peernet\PeernetFullAppOutput\Backend.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\BrowserInnoSetup\BrowserSetup2\GetRuntimeVersion.bat"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
