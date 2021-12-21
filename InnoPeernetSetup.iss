@@ -41,31 +41,30 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Infrastructure.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Microsoft.Extensions.Logging.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Microsoft.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Microsoft.Extensions.Options.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Microsoft.Extensions.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Models.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\MvvmCross.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\MvvmCross.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\MvvmCross.Plugin.Control.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\MvvmCross.Plugin.Control.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Peernet Browser.deps.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Peernet Browser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\PeernetFullAppOutput\Peernet Browser.dll.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Peernet Browser.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Peernet Browser.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Serilog.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\Serilog.Sinks.Trace.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net5.0-windows\win-x64\publish\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\PeernetFullAppOutput\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\Sources\Peernet\PeernetFullAppOutput\Backend.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Infrastructure.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.Logging.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.Options.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Models.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\MvvmCross.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\MvvmCross.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\MvvmCross.Plugin.Control.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\MvvmCross.Plugin.Control.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Peernet Browser.deps.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Peernet Browser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Static\Peernet Browser.dll.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Peernet Browser.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Peernet Browser.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Serilog.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Serilog.Sinks.Trace.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Static\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Backend.exe"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

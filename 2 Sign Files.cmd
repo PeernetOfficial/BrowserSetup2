@@ -1,0 +1,13 @@
+set "DIRTARGET=Files Release"
+
+signtool sign /a /fd SHA256 "%DIRTARGET%\Backend.exe"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Peernet Browser.exe"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Application.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Infrastructure.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Models.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\MvvmCross.Plugin.Control.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\MvvmCross.Plugin.Control.Platforms.Wpf.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Peernet Browser.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Extensions.Logging.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Sinks.Trace.dll"
