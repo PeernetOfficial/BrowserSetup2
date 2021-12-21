@@ -34,6 +34,7 @@ SolidCompression=yes
 UninstallDisplayIcon={app}\{#MyAppExeName}
 WizardStyle=modern
 VersionInfoVersion={#MyAppVersion}
+SetupIconFile=Files Static\Peernet.ico
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
