@@ -1,0 +1,5 @@
+idpsetup-1.5.1.exe was downloaded from https://mitrichsoftware.wordpress.com/inno-setup-tools/inno-download-plugin/
+
+1. Install it.
+2. Include this line at the end of the file "C:\Program Files (x86)\Inno Setup 6\ISPPBuiltins.iss":
+#pragma include __INCLUDE__ + ";" + ReadReg(HKLM, "Software\Mitrich Software\Inno Download Plugin", "InstallDir")
