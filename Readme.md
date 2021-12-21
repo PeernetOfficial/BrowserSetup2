@@ -15,10 +15,26 @@ To compile the script you need to:
 1. Download and install [Inno Setup](https://jrsoftware.org/isdl.php)  
 This basically gives ability to compile scripts, although since the script uses downloading features you need to:
 
-2. Download and install [Inno Download Plugin](https://jrsoftware.org/isinfo.php).
-3. Modify [path]\Inno Setup 6\ISPPBuiltins.iss file by adding following to the end of the file
-> #pragma include __INCLUDE__ + ";" + "[path]\Inno Download Plugin"
-
+2. Install the [Inno Download Plugin](Archive/idpsetup-1.5.1.exe) from the archive folder.
+3. Modify the file `[path]\Inno Setup 6\ISPPBuiltins.iss` by adding following to the end of the file
+```
+#pragma include __INCLUDE__ + ";" + ReadReg(HKLM, "Software\Mitrich Software\Inno Download Plugin", "InstallDir")
+```
 4. Open the script in the __Inno Setup Compiler__
 5. Compile.  
 You can compile either by _CTRL + F9_ combination or by _Build > Compile_
+
+## Preparation Checklist
+
+Follow each step before generating a release version for the public.
+
+1. Core: Update the core version number in the file `Config.go`. It is going to be part of the User Agent.
+
+2. Cmd: Open `Main.go`. Change the User Agent to `Peernet Browser`. The core version is automatically added to it.
+
+3. Cmd: Make sure to compile it using these flags: `go build -trimpath -ldflags "-H=windowsgui -s"`
+
+4. Browser: Compile it using: `dotnet publish -c Release --no-self-contained`
+
+5. Setup: Change the version number in the file `InnoPeernetSetup.iss` in the field `MyAppVersion`
+

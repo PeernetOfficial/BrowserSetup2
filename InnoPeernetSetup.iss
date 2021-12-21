@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Peernet Browser"
-#define MyAppVersion "Alpha 5"
+#define MyAppVersion "0.5.1"
 #define MyAppPublisher "Peernet"
 #define MyAppURL "https://peernet.org/"
 #define MyAppExeName "Peernet Browser.exe"
@@ -33,12 +33,13 @@ Compression=lzma
 SolidCompression=yes
 UninstallDisplayIcon={app}\{#MyAppExeName}
 WizardStyle=modern
+VersionInfoVersion={#MyAppVersion}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
