@@ -41,6 +41,8 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:AdditionalIcons}";
+
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -79,9 +81,10 @@ Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{autoappdata}\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: taskbaricon
 
 [Run]
-Filename: "{app}\Firewall allow.cmd"; Verb: runas; Flags: runascurrentuser shellexec
+; Filename: "{app}\Firewall allow.cmd"; Verb: runas; Flags: runascurrentuser shellexec
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [CustomMessages]
@@ -248,3 +251,125 @@ begin
   Result := requiresRestart;
 end;
 
+#ifdef UNICODE
+  #define AW "W"
+#else
+  #define AW "A"
+#endif
+
+const
+  // these constants are not defined in Windows
+  SHELL32_STRING_ID_PIN_TO_TASKBAR = 5386;
+  SHELL32_STRING_ID_PIN_TO_STARTMENU = 5381;
+  SHELL32_STRING_ID_UNPIN_FROM_TASKBAR = 5387;
+  SHELL32_STRING_ID_UNPIN_FROM_STARTMENU = 5382;
+
+type
+  HINSTANCE = THandle;
+  HMODULE = HINSTANCE;
+
+  TPinDest = (
+    pdTaskbar,
+    pdStartMenu
+  );
+
+function LoadLibrary(lpFileName: string): HMODULE;
+  external 'LoadLibrary{#AW}@kernel32.dll stdcall';
+function FreeLibrary(hModule: HMODULE): BOOL;
+  external 'FreeLibrary@kernel32.dll stdcall';
+function LoadString(hInstance: HINSTANCE; uID: UINT;
+  lpBuffer: string; nBufferMax: Integer): Integer;
+  external 'LoadString{#AW}@user32.dll stdcall';
+
+function TryGetVerbName(ID: UINT; out VerbName: string): Boolean;
+var
+  Buffer: string;
+  BufLen: Integer;
+  Handle: HMODULE;
+begin
+  Result := False;
+
+  Handle := LoadLibrary(ExpandConstant('{sys}\Shell32.dll'));
+  if Handle <> 0 then
+  try
+    SetLength(Buffer, 255);
+    BufLen := LoadString(Handle, ID, Buffer, Length(Buffer));
+
+    if BufLen <> 0 then
+    begin
+      Result := True;
+      VerbName := Copy(Buffer, 1, BufLen);
+    end;
+  finally
+    FreeLibrary(Handle);
+  end;
+end;
+
+function ExecVerb(const FileName, VerbName: string): Boolean;
+var
+  I: Integer;
+  Shell: Variant;
+  Folder: Variant;
+  FolderItem: Variant;
+begin
+  Result := False;
+
+  Shell := CreateOleObject('Shell.Application');
+  Folder := Shell.NameSpace(ExtractFilePath(FileName));
+  FolderItem := Folder.ParseName(ExtractFileName(FileName));
+
+  for I := 1 to FolderItem.Verbs.Count do
+  begin
+    if FolderItem.Verbs.Item(I).Name = VerbName then
+    begin
+      FolderItem.Verbs.Item(I).DoIt;
+      Result := True;
+      Exit;
+    end;
+  end;  
+end;
+
+function PinAppTo(const FileName: string; PinDest: TPinDest): Boolean;
+var
+  ResStrID: UINT;
+  VerbName: string;
+begin
+  case PinDest of
+    pdTaskbar: ResStrID := SHELL32_STRING_ID_PIN_TO_TASKBAR;
+    pdStartMenu: ResStrID := SHELL32_STRING_ID_PIN_TO_STARTMENU;
+  end;
+  Result := TryGetVerbName(ResStrID, VerbName) and ExecVerb(FileName, VerbName);
+end;
+
+function UnpinAppFrom(const FileName: string; PinDest: TPinDest): Boolean;
+var
+  ResStrID: UINT;
+  VerbName: string;
+begin
+  case PinDest of
+    pdTaskbar: ResStrID := SHELL32_STRING_ID_UNPIN_FROM_TASKBAR;
+    pdStartMenu: ResStrID := SHELL32_STRING_ID_UNPIN_FROM_STARTMENU;
+  end;
+  Result := TryGetVerbName(ResStrID, VerbName) and ExecVerb(FileName, VerbName);
+end;
+
+
+function NextButtonClick(CurPageID: Integer): Boolean;
+var
+  ErrorCode: Integer;
+begin
+  if CurPageID = wpFinished then
+  begin
+    ShellExec('runas', ExpandConstant('{app}\Firewall allow.cmd'), '', '', SW_SHOW, ewWaitUntilTerminated, ErrorCode);
+    if ErrorCode = 0 then    
+      Result := True
+    else
+      SaveStringToFile(ExpandConstant('{app}\firewallnotset'), '', False);
+    
+    if WizardIsTaskSelected('taskbaricon') then
+      begin
+        PinAppTo(ExpandConstant('{app}\{#MyAppExeName}'), pdTaskbar);
+      end
+  end; 
+  Result := True;
+end;
