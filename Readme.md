@@ -38,3 +38,8 @@ Follow each step before generating a release version for the public.
 
 5. Setup: Change the version number in the file `InnoPeernetSetup.iss` in the field `MyAppVersion`
 
+## Edge Cases
+
+### Running Setup as different User
+
+If the setup is run as different user (for example using right-click "Run as administrator") it will actually install the browser for that selected user. If this is done from non-admin account (started under admin rights), the installed version will be inaccessible to the non-admin user.
