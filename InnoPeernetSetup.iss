@@ -23,9 +23,8 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={localappdata}\Peernet\Peernet Browser
-DefaultGroupName=Peernet Browser
 ChangesAssociations=yes
-DisableProgramGroupPage=no
+DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=commandline
@@ -36,7 +35,6 @@ UninstallDisplayIcon={app}\{#MyAppExeName}
 WizardStyle=modern
 VersionInfoVersion={#MyAppVersion}
 SetupIconFile=Files Static\Peernet.ico
-AllowNoIcons=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -44,6 +42,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:AdditionalIcons}";
+
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -80,9 +79,8 @@ Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; Value
 Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
 
 [Icons]
-// This adds the Peernet Browser.exe path to the Programs folder on the Start Menu. Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
-Name: "{group}\Peernet Browser"; Filename: "{app}\{#MyAppExeName}"; WorkingDir: "{app}"
 Name: "{autoappdata}\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: taskbaricon
 
 [Run]
