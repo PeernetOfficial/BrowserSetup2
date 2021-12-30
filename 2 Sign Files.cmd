@@ -10,4 +10,5 @@ signtool sign /a /fd SHA256 "%DIRTARGET%\MvvmCross.Plugin.Control.Platforms.Wpf.
 signtool sign /a /fd SHA256 "%DIRTARGET%\Peernet Browser.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Extensions.Logging.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Sinks.File.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Sinks.Trace.dll"

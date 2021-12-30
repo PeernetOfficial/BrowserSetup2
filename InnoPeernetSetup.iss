@@ -65,6 +65,7 @@ Source: "Files Release\Peernet Browser.exe"; DestDir: "{app}"; Flags: ignorevers
 Source: "Files Release\Peernet Browser.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Serilog.Sinks.File.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Sinks.Trace.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Static\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
