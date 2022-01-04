@@ -43,3 +43,75 @@ Follow each step before generating a release version for the public.
 ### Running Setup as different User
 
 If the setup is run as different user (for example using right-click "Run as administrator") it will actually install the browser for that selected user. If this is done from non-admin account (started under admin rights), the installed version will be inaccessible to the non-admin user.
+
+
+# Improvement Ideas
+## Pin To Taskbar option
+There is a discussion spanning topic of taskbar pin option on [Peernet Talk](https://talk.peernet.org/discussion/42/setup-pin-to-taskbar/).
+### Windows 10 possible solution
+Pinning to taskbar for many Windows versions used to be easy task with reusing one of COM Object resources to simulate _Pin to taskbar_ context menu click.
+Starting from some Windows 10 update pinning to taskbar became tricky. Microsoft changed _Shell_ namespaces and introduced new method of _Start Layout_ management.
+The method uses XML file which defines the [__Start Layout__](https://docs.microsoft.com/en-us/windows/configuration/windows-10-start-layout-options-and-policies) (including taskbar).
+
+Such file for Peernet Browser could be defined as:
+
+```
+<LayoutModificationTemplate 
+xmlns:defaultlayout="http://schemas.microsoft.com/Start/2014/FullDefaultLayout"  
+Version="1" 
+xmlns="http://schemas.microsoft.com/Start/2014/LayoutModification"
+xmlns:taskbar="http://schemas.microsoft.com/Start/2014/TaskbarLayout">
+  <CustomTaskbarLayoutCollection PinListPlacement="Replace">
+    <defaultlayout:TaskbarLayout>
+      <taskbar:TaskbarPinList>
+        <taskbar:DesktopApp DesktopApplicationLinkPath="%appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Peernet Browser.lnk" />
+      </taskbar:TaskbarPinList>
+    </defaultlayout:TaskbarLayout>
+  </CustomTaskbarLayoutCollection>
+</LayoutModificationTemplate>
+```
+
+where 
+><taskbar:DesktopApp DesktopApplicationLinkPath="%appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Peernet Browser.lnk" /> 
+
+is .lnk file reference created based on 'Peernet Browser.exe'.  
+__.lnk__ could be created from the Inno script code:
+```
+    PinAppFromLayout;
+    FileCopy(
+         ExpandConstant('{app}\Peernet Browser.lnk'), ExpandConstant('{autoappdata}\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar\Peernet Browser.lnk'),
+         False);
+```
+
+where _PinAppFromLayout_ is defined as
+```
+procedure PinAppFromLayout;
+begin
+  CreateShellLink(
+    ExpandConstant('{app}\Peernet Browser.lnk'),
+    '',
+    ExpandConstant('{app}\Peernet Browser.exe'),
+    '',
+    ExpandConstant('{app}\config'),
+    '',
+    0,
+    SW_SHOWNORMAL);
+end;
+```
+
+The XML Start Layout file should be imported to the output directory under __[File]__ directive
+```
+Source: "Files Static\TaskBarLayout.xml"; DestDir: "{app}"; Flags: ignoreversion
+```
+
+Having it in the file system the file can later be set as Start Layout definition either via __Group Policy Editor__ or respective registry keys.
+Inno supports registry management under __[Registry]__ directrive.
+
+```
+Root: HKCU; Subkey: "Software\Policies\Microsoft\Windows\Explorer"; Flags: createvalueifdoesntexist;
+Root: HKCU; Subkey: "Software\Policies\Microsoft\Windows\Explorer"; ValueName:"LockedStartLayout"; ValueData: "$1"; ValueType: dword; Flags: createvalueifdoesntexist;
+Root: HKCU; Subkey: "Software\Policies\Microsoft\Windows\Explorer"; ValueName:"StartLayoutFile"; ValueData: "{app}\TaskBarLayout.xml"; ValueType: expandsz; Flags: createvalueifdoesntexist;
+```
+
+Changes to the registry require privileged access. The proposed solution requires running the setup with elevated rights. It is recommanded to look for some improvement in this matter.
+Change of Start Layout XML file requires reboot (or user relog = log out + log in) to have the effect.
