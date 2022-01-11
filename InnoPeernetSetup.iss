@@ -43,6 +43,9 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:AdditionalIcons}";
 
+[UninstallDelete]
+Type: filesandordirs; Name: "{app}\data\blockchain global"
+Type: filesandordirs; Name: "{app}\data\search index"
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
