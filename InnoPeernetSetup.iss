@@ -243,6 +243,8 @@ begin
   // 'NeedsRestart' only has an effect if we return a non-empty string, thus aborting the installation.
   // If the installers indicate that they want a restart, this should be done at the end of installation.
   // Therefore we set the global 'restartRequired' if a restart is needed, and return this from NeedRestart()
+  DelTree(ExpandConstant('{app}\data\blockchain global'), True, True, True);
+  DelTree(ExpandConstant('{app}\data\search index'), True, True, True);
 
   if NetRuntimeIsMissing() then
   begin
