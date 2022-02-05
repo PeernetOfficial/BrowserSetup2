@@ -1,5 +1,5 @@
-cd..
-cd Cmd
+cd ..\Backend
+
 go build -trimpath -ldflags "-H=windowsgui -s"
 
 cd..

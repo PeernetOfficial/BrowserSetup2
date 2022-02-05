@@ -56,10 +56,6 @@ Source: "Files Release\Microsoft.Extensions.Logging.dll"; DestDir: "{app}"; Flag
 Source: "Files Release\Microsoft.Extensions.Options.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Models.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\MvvmCross.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\MvvmCross.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\MvvmCross.Plugin.Control.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\MvvmCross.Plugin.Control.Platforms.Wpf.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.deps.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -70,9 +66,12 @@ Source: "Files Release\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Sinks.File.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Sinks.Trace.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\System.Drawing.Common.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Static\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Backend.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
