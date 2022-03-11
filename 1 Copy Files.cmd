@@ -1,8 +1,15 @@
 set "DIRTARGET=Files Release"
 set "DIRBACKEND=C:\Data\Peernet\Backend"
 set "DIRBROWSER=C:\Data\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net6.0-windows\win-x64\publish\"
+set "DIRPLUGINS=C:\Data\Peernet\BrowserPlugins"
+
+REM Backend
 
 del "%DIRTARGET%\Backend.exe"
+copy "%DIRBACKEND%\Backend.exe" "%DIRTARGET%\Backend.exe"
+
+REM Browser
+
 del "%DIRTARGET%\Application.dll"
 del "%DIRTARGET%\Infrastructure.dll"
 del "%DIRTARGET%\Microsoft.Extensions.DependencyInjection.Abstractions.dll"
@@ -24,8 +31,6 @@ del "%DIRTARGET%\AsyncAwaitBestPractices.MVVM.dll"
 del "%DIRTARGET%\Microsoft.Extensions.DependencyInjection.dll"
 del "%DIRTARGET%\Peernet.SDK.dll"
 
-copy "%DIRBACKEND%\Backend.exe" "%DIRTARGET%\Backend.exe"
-
 copy "%DIRBROWSER%\Application.dll" "%DIRTARGET%\"
 copy "%DIRBROWSER%\Infrastructure.dll" "%DIRTARGET%\"
 copy "%DIRBROWSER%\Microsoft.Extensions.DependencyInjection.Abstractions.dll" "%DIRTARGET%\"
@@ -46,3 +51,12 @@ copy "%DIRBROWSER%\AsyncAwaitBestPractices.dll" "%DIRTARGET%\"
 copy "%DIRBROWSER%\AsyncAwaitBestPractices.MVVM.dll" "%DIRTARGET%\"
 copy "%DIRBROWSER%\Microsoft.Extensions.DependencyInjection.dll" "%DIRTARGET%\"
 copy "%DIRBROWSER%\Peernet.SDK.dll" "%DIRTARGET%\"
+
+REM Browser Plugins
+
+rmdir /S /Q "%DIRTARGET%\Plugins"
+mkdir "%DIRTARGET%\Plugins"
+
+xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.ImageViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\ImageViewer" /E /I
+xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.MediaPlayer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\MediaPlayer" /E /I
+xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.TextViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\TextViewer" /E /I
