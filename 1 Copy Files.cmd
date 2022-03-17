@@ -60,3 +60,4 @@ mkdir "%DIRTARGET%\Plugins"
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.ImageViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\ImageViewer" /E /I
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.MediaPlayer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\MediaPlayer" /E /I
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.TextViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\TextViewer" /E /I
+xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.ByteViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\ByteViewer" /E /I
