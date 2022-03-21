@@ -42,10 +42,15 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "geoipsdatabase"; Description: "Download GeoIPs database for Peers Map"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "mediaplayerplugin"; Description: "Install MediaPlayer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\data\blockchain global"
 Type: filesandordirs; Name: "{app}\data\search index"
+
+[Dirs]
+Name: "{app}\data"
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -71,6 +76,8 @@ Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ig
 Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+//Source: "{tmp}\GeoLite2-City.rar"; DestDir: "{app}\data"; Flags: external;
+//Source: "{tmp}\MediaPlayer.rar"; DestDir: "{app}\Plugins"; Flags: external;
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
@@ -373,7 +380,17 @@ begin
     if WizardIsTaskSelected('taskbaricon') then
       begin
         PinAppTo(ExpandConstant('{app}\{#MyAppExeName}'), pdTaskbar);
-      end
+      end;
+    if WizardIsTaskSelected('geoipsdatabase') then
+      begin
+        idpAddFile('https://peernet.org/dl/setup/GeoIP.zip', ExpandConstant('{tmp}\GeoIP.zip'));
+        idpDownloadAfter(wpReady);
+      end;
+    if WizardIsTaskSelected('mediaplayerplugin') then
+      begin
+        idpAddFile('https://peernet.org/dl/setup/plugin/MediaPlayer.zip', ExpandConstant('{app}\data\update\MediaPlayer.zip'));
+        idpDownloadAfter(wpReady);
+      end;
   end; 
   Result := True;
 end;
