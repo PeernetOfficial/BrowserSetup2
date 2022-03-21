@@ -12,3 +12,17 @@ signtool sign /a /fd SHA256 "%DIRTARGET%\Serilog.Sinks.Trace.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\AsyncAwaitBestPractices.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\AsyncAwaitBestPractices.MVVM.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Peernet.SDK.dll"
+
+REM Plugins
+
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ImageViewer\Peernet.Browser.Plugins.ImageViewer.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ImageViewer\Peernet.SDK.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\MediaPlayer\LibVLCSharp.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\MediaPlayer\LibVLCSharp.WPF.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\MediaPlayer\Peernet.Browser.Plugins.MediaPlayer.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\MediaPlayer\Peernet.SDK.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\TextViewer\Peernet.Browser.Plugins.TextViewer.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\TextViewer\Peernet.SDK.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ByteViewer\Peernet.Browser.Plugins.ByteViewer.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ByteViewer\Peernet.SDK.dll"
+signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ByteViewer\WPFHexaEditor.dll"
