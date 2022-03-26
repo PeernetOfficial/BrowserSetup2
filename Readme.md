@@ -44,6 +44,19 @@ Follow each step before generating a release version for the public.
 
 If the setup is run as different user (for example using right-click "Run as administrator") it will actually install the browser for that selected user. If this is done from non-admin account (started under admin rights), the installed version will be inaccessible to the non-admin user.
 
+## Additional Tasks Screen
+
+The setup has an "Additional Tasks" screen. It lists:
+* Create a desktop shortcut
+* Pin to taskbar (currently not working on Windows 10)
+* Download GeoIP database for Peers Map https://peernet.org/dl/setup/GeoIP.zip
+* Download Media Player Plugin https://peernet.org/dl/setup/plugin/MediaPlayer.zip
+* Download Text Viewer Plugin https://peernet.org/dl/setup/plugin/TextViewer.zip
+* Download Picture Viewer Plugin https://peernet.org/dl/setup/plugin/PictureViewer.zip
+* Download Hex Viewer Plugin https://peernet.org/dl/setup/plugin/ByteViewer.zip
+
+The ZIP files downloaded are [update packages](https://github.com/PeernetOfficial/core/tree/master/system) placed into the `data/update` folder. They contain an `info.ini` file that instructs the backend what to do with it.
+
 
 # Improvement Ideas
 ## Pin To Taskbar option

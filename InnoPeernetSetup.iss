@@ -42,8 +42,11 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:AdditionalIcons}";
-Name: "geoipsdatabase"; Description: "Download GeoIPs database for Peers Map"; GroupDescription: "{cm:AdditionalIcons}";
-Name: "mediaplayerplugin"; Description: "Install MediaPlayer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "geoipdatabase"; Description: "Download GeoIP database for Peers Map"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "mediaplayerplugin"; Description: "Download Media Player Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "textviewerplugin"; Description: "Download Text Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "pictureviewerplugin"; Description: "Download Picture Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "byteviewerplugin"; Description: "Download Hex Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\data\blockchain global"
@@ -76,8 +79,6 @@ Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ig
 Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
-//Source: "{tmp}\GeoLite2-City.rar"; DestDir: "{app}\data"; Flags: external;
-//Source: "{tmp}\MediaPlayer.rar"; DestDir: "{app}\Plugins"; Flags: external;
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
@@ -381,7 +382,7 @@ begin
       begin
         PinAppTo(ExpandConstant('{app}\{#MyAppExeName}'), pdTaskbar);
       end;
-    if WizardIsTaskSelected('geoipsdatabase') then
+    if WizardIsTaskSelected('geoipdatabase') then
       begin
         idpAddFile('https://peernet.org/dl/setup/GeoIP.zip', ExpandConstant('{tmp}\GeoIP.zip'));
         idpDownloadAfter(wpReady);
@@ -389,6 +390,21 @@ begin
     if WizardIsTaskSelected('mediaplayerplugin') then
       begin
         idpAddFile('https://peernet.org/dl/setup/plugin/MediaPlayer.zip', ExpandConstant('{app}\data\update\MediaPlayer.zip'));
+        idpDownloadAfter(wpReady);
+      end;
+    if WizardIsTaskSelected('textviewerplugin') then
+      begin
+        idpAddFile('https://peernet.org/dl/setup/plugin/TextViewer.zip', ExpandConstant('{app}\data\update\TextViewer.zip'));
+        idpDownloadAfter(wpReady);
+      end;
+    if WizardIsTaskSelected('pictureviewerplugin') then
+      begin
+        idpAddFile('https://peernet.org/dl/setup/plugin/PictureViewer.zip', ExpandConstant('{app}\data\update\PictureViewer.zip'));
+        idpDownloadAfter(wpReady);
+      end;
+    if WizardIsTaskSelected('byteviewerplugin') then
+      begin
+        idpAddFile('https://peernet.org/dl/setup/plugin/ByteViewer.zip', ExpandConstant('{app}\data\update\ByteViewer.zip'));
         idpDownloadAfter(wpReady);
       end;
   end; 
