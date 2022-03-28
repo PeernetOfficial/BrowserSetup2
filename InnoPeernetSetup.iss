@@ -9,7 +9,6 @@
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
-#include <idp.iss>
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
@@ -79,6 +78,12 @@ Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ig
 Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{tmp}\GeoIP.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
+Source: "{tmp}\MediaPlayer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
+Source: "{tmp}\TextViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
+Source: "{tmp}\PictureViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
+Source: "{tmp}\ByteViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
+
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
@@ -98,8 +103,6 @@ Name: "{autoappdata}\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBa
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [CustomMessages]
-IDP_DownloadFailed=Download of .NET 6 failed. .NET 6 Desktop runtime is required to run Peernet Browser.
-IDP_RetryCancel=Click 'Retry' to try downloading the files again, or click 'Cancel' to terminate setup.
 InstallingDotNetRuntime=Installing .NET 6 Desktop Runtime. This might take a few minutes...
 DotNetRuntimeFailedToLaunch=Failed to launch .NET Runtime Installer with error "%1". Please fix the error then run this installer again.
 DotNetRuntimeFailed1602=.NET Runtime installation was cancelled. This installation can continue, but be aware that this application may not run unless the .NET Runtime installation is completed successfully.
@@ -110,6 +113,14 @@ DotNetRuntimeFailedOther=The .NET Runtime installer exited with an unexpected st
 [Code]
 var
   requiresRestart: boolean;
+  DownloadPage: TDownloadWizardPage;
+
+function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
+begin
+  if Progress = ProgressMax then
+    Log(Format('Successfully downloaded file to {tmp}: %s', [FileName]));
+  Result := True;
+end;
 
 function CompareVersion(V1, V2: string): Integer;
 var
@@ -189,10 +200,13 @@ end;
 
 procedure InitializeWizard;
 begin
+  DownloadPage := CreateDownloadPage(SetupMessage(msgWizardPreparing), SetupMessage(msgPreparingDesc), @OnDownloadProgress);
   if NetRuntimeIsMissing() then
   begin
-    idpAddFile('https://download.visualstudio.microsoft.com/download/pr/7f3a766e-9516-4579-aaf2-2b150caa465c/d57665f880cdcce816b278a944092965/windowsdesktop-runtime-6.0.3-win-x64.exe', ExpandConstant('{tmp}\NetRuntimeInstaller.exe'));
-    idpDownloadAfter(wpReady);
+    DownloadPage.Add('https://download.visualstudio.microsoft.com/download/pr/7f3a766e-9516-4579-aaf2-2b150caa465c/d57665f880cdcce816b278a944092965/windowsdesktop-runtime-6.0.3-win-x64.exe', 'NetRuntimeInstaller.exe', '');
+    DownloadPage.Show;
+    DownloadPage.Download;
+    DownloadPage.Hide;
   end;
 end;
 
@@ -370,6 +384,42 @@ function NextButtonClick(CurPageID: Integer): Boolean;
 var
   ErrorCode: Integer;
 begin
+  if CurPageID = wpReady then
+  begin
+    DownloadPage.Clear;
+    if WizardIsTaskSelected('geoipdatabase') then
+      begin
+        DownloadPage.Add('https://peernet.org/dl/setup/GeoIP.zip', 'GeoIP.zip', '');
+      end;
+    if WizardIsTaskSelected('mediaplayerplugin') then
+      begin
+        DownloadPage.Add('https://peernet.org/dl/setup/plugin/MediaPlayer.zip', 'MediaPlayer.zip', '');
+      end;
+    if WizardIsTaskSelected('textviewerplugin') then
+      begin
+        DownloadPage.Add('https://peernet.org/dl/setup/plugin/TextViewer.zip', 'TextViewer.zip', '');
+      end;
+    if WizardIsTaskSelected('pictureviewerplugin') then
+      begin
+        DownloadPage.Add('https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
+      end;
+    if WizardIsTaskSelected('byteviewerplugin') then
+      begin
+        DownloadPage.Add('https://peernet.org/dl/setup/plugin/ByteViewer.zip', 'ByteViewer.zip', '');
+      end;
+    DownloadPage.Show;
+    try
+      try
+        DownloadPage.Download;
+        Result := True;
+      except
+        SuppressibleMsgBox(AddPeriod(GetExceptionMessage), mbCriticalError, MB_OK, IDOK);
+        Result := False;
+      end;
+    finally
+      DownloadPage.Hide;
+    end;
+  end;
   if CurPageID = wpFinished then
   begin
     ShellExec('runas', ExpandConstant('{app}\Firewall allow.cmd'), '', '', SW_SHOW, ewWaitUntilTerminated, ErrorCode);
@@ -381,31 +431,6 @@ begin
     if WizardIsTaskSelected('taskbaricon') then
       begin
         PinAppTo(ExpandConstant('{app}\{#MyAppExeName}'), pdTaskbar);
-      end;
-    if WizardIsTaskSelected('geoipdatabase') then
-      begin
-        idpAddFile('https://peernet.org/dl/setup/GeoIP.zip', ExpandConstant('{tmp}\GeoIP.zip'));
-        idpDownloadAfter(wpReady);
-      end;
-    if WizardIsTaskSelected('mediaplayerplugin') then
-      begin
-        idpAddFile('https://peernet.org/dl/setup/plugin/MediaPlayer.zip', ExpandConstant('{app}\data\update\MediaPlayer.zip'));
-        idpDownloadAfter(wpReady);
-      end;
-    if WizardIsTaskSelected('textviewerplugin') then
-      begin
-        idpAddFile('https://peernet.org/dl/setup/plugin/TextViewer.zip', ExpandConstant('{app}\data\update\TextViewer.zip'));
-        idpDownloadAfter(wpReady);
-      end;
-    if WizardIsTaskSelected('pictureviewerplugin') then
-      begin
-        idpAddFile('https://peernet.org/dl/setup/plugin/PictureViewer.zip', ExpandConstant('{app}\data\update\PictureViewer.zip'));
-        idpDownloadAfter(wpReady);
-      end;
-    if WizardIsTaskSelected('byteviewerplugin') then
-      begin
-        idpAddFile('https://peernet.org/dl/setup/plugin/ByteViewer.zip', ExpandConstant('{app}\data\update\ByteViewer.zip'));
-        idpDownloadAfter(wpReady);
       end;
   end; 
   Result := True;
