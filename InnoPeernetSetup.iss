@@ -401,7 +401,7 @@ begin
       end;
     if WizardIsTaskSelected('pictureviewerplugin') then
       begin
-        DownloadPage.Add('https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
+        DownloadPage.Add('https://peernet.org/dl/setup/plugin/ImageViewer.zip', 'ImageViewer.zip', '');
       end;
     if WizardIsTaskSelected('byteviewerplugin') then
       begin
