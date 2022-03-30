@@ -81,7 +81,7 @@ Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{tmp}\GeoIP.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\MediaPlayer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\TextViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
-Source: "{tmp}\PictureViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
+Source: "{tmp}\ImageViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\ByteViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
