@@ -379,6 +379,46 @@ begin
   Result := TryGetVerbName(ResStrID, VerbName) and ExecVerb(FileName, VerbName);
 end;
 
+function DownloadTask(
+  TaskName, Url, BaseName, RequiredSHA256OfFile: String): Boolean;
+var
+  Retry: Boolean;
+  Answer: Integer;
+begin
+  if WizardIsTaskSelected(TaskName) then
+    begin
+      repeat
+        try
+          DownloadPage.Clear;
+          DownloadPage.Add(Url, BaseName, RequiredSHA256OfFile);
+          DownloadPage.Show;
+          DownloadPage.Download;
+          Retry := False;
+          Result := True;
+        except
+          if DownloadPage.AbortedByUser then
+          begin
+            Log('Aborted by user.')
+            Result := False;
+            Retry := False;
+          end
+            else
+          begin
+            // Make sure the page displays the URL that fails to download
+            DownloadPage.Msg2Label.Caption := Url;
+            Answer :=
+              SuppressibleMsgBox(
+                AddPeriod(GetExceptionMessage),
+                mbCriticalError, MB_ABORTRETRYIGNORE, IDABORT);
+            Retry := (Answer = IDRETRY);
+            Result := (Answer <> IDABORT);
+          end;
+        end;
+      until not Retry;
+      DownloadPage.Hide;
+    end;
+end;
+
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
@@ -386,39 +426,11 @@ var
 begin
   if CurPageID = wpReady then
   begin
-    DownloadPage.Clear;
-    if WizardIsTaskSelected('geoipdatabase') then
-      begin
-        DownloadPage.Add('https://peernet.org/dl/setup/GeoIP.zip', 'GeoIP.zip', '');
-      end;
-    if WizardIsTaskSelected('mediaplayerplugin') then
-      begin
-        DownloadPage.Add('https://peernet.org/dl/setup/plugin/MediaPlayer.zip', 'MediaPlayer.zip', '');
-      end;
-    if WizardIsTaskSelected('textviewerplugin') then
-      begin
-        DownloadPage.Add('https://peernet.org/dl/setup/plugin/TextViewer.zip', 'TextViewer.zip', '');
-      end;
-    if WizardIsTaskSelected('pictureviewerplugin') then
-      begin
-        DownloadPage.Add('https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
-      end;
-    if WizardIsTaskSelected('byteviewerplugin') then
-      begin
-        DownloadPage.Add('https://peernet.org/dl/setup/plugin/ByteViewer.zip', 'ByteViewer.zip', '');
-      end;
-    DownloadPage.Show;
-    try
-      try
-        DownloadPage.Download;
-        Result := True;
-      except
-        SuppressibleMsgBox(AddPeriod(GetExceptionMessage), mbCriticalError, MB_OK, IDOK);
-        Result := False;
-      end;
-    finally
-      DownloadPage.Hide;
-    end;
+    DownloadTask('geoipdatabase', 'https://peernet.org/dl/setup/GeoIP.zip', 'GeoIP.zip', '');
+    DownloadTask('mediaplayerplugin', 'https://peernet.org/dl/setup/plugin/MediaPlayer.zip', 'MediaPlayer.zip', '');
+    DownloadTask('textviewerplugin', 'https://peernet.org/dl/setup/plugin/TextViewer.zip', 'TextViewer.zip', '');
+    DownloadTask('pictureviewerplugin', 'https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
+    DownloadTask('byteviewerplugin', 'https://peernet.org/dl/setup/plugin/ByteViewer.zip', 'ByteViewer.zip', '');
   end;
   if CurPageID = wpFinished then
   begin
