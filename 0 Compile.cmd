@@ -11,4 +11,8 @@ cd..
 cd BrowserPlugins
 dotnet publish -c Release --no-self-contained
 
+cd..
+cd PluginsPrivate
+dotnet publish -c Release --no-self-contained
+
 PAUSE

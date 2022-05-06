@@ -2,6 +2,7 @@ set "DIRTARGET=Files Release"
 set "DIRBACKEND=C:\Data\Peernet\Backend"
 set "DIRBROWSER=C:\Data\Peernet\Browser\Peernet.Browser.WPF\bin\Release\net6.0-windows\win-x64\publish\"
 set "DIRPLUGINS=C:\Data\Peernet\BrowserPlugins"
+set "DIRPLUGINS2=C:\Data\Peernet\PluginsPrivate"
 
 REM Backend
 
@@ -133,3 +134,10 @@ xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.ImageViewer\bin\Release\net6.0-windo
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.MediaPlayer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\MediaPlayer" /E /I
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.TextViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\TextViewer" /E /I
 xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.ByteViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\ByteViewer" /E /I
+xcopy "%DIRPLUGINS%\Peernet.Browser.Plugins.HTMLViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\HTMLViewer" /E /I
+
+xcopy "%DIRPLUGINS2%\Peernet.Browser.Plugins.ExcelViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\ExcelViewer" /E /I
+xcopy "%DIRPLUGINS2%\Peernet.Browser.Plugins.PDFViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\PDFViewer" /E /I
+xcopy "%DIRPLUGINS2%\Peernet.Browser.Plugins.WordViewer\bin\Release\net6.0-windows\publish" "%DIRTARGET%\Plugins\WordViewer" /E /I
+
+PAUSE
