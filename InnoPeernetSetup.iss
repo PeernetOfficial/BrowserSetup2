@@ -56,8 +56,39 @@ Name: "{app}\data"
 
 [Files]
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.CodeParser.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Data.Desktop.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Data.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.DataAccess.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Images.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Mvvm.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Office.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Pdf.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Pdf.v21.2.Drawing.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Printing.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.RichEdit.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Core.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Docking.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.DocumentViewer.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.ExpressionEditor.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v21.2.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Layout.v21.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.LayoutControl.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Office.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Printing.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Ribbon.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.RichEdit.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.Office2019Colorful.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.PeernetDarkTheme.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.PeernetLightTheme.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpo.v21.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Infrastructure.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.Logging.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.Options.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -65,19 +96,24 @@ Source: "Files Release\Microsoft.Extensions.Primitives.dll"; DestDir: "{app}"; F
 Source: "Files Release\Newtonsoft.Json.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.deps.json"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Static\Peernet Browser.dll.config"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Peernet Browser.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Extensions.Logging.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Sinks.File.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Serilog.Sinks.Trace.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Static\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\sni.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.Data.SqlClient.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.Private.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.ServiceModel.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.ServiceModel.Http.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.ServiceModel.NetTcp.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.ServiceModel.Primitives.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\System.ServiceModel.Security.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Backend.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\Peernet.SDK.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Static\Peernet Browser.dll.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Static\Firewall allow.cmd"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{tmp}\GeoIP.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\MediaPlayer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\TextViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;

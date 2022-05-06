@@ -10,7 +10,7 @@ The script responsibility:
 Downloading of the runtime from setup file is possible thanks to [Inno Download Plugin](https://jrsoftware.org/isinfo.php). 
 It is the set of APIs which use in the script gives ability to download files. For more information install [the plugin](https://drive.google.com/file/d/0Bzw1xBVt0mokWHlicktGUVNXeTA/view?resourcekey=0-zNIx1s76O4jwgCPWjqEsCA) and read the documentation.
 
-### Compilation
+## Compilation
 To compile the script you need to:  
 1. Download and install [Inno Setup](https://jrsoftware.org/isdl.php)  
 This basically gives ability to compile scripts, although since the script uses downloading features you need to:
