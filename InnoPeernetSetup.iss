@@ -46,6 +46,9 @@ Name: "mediaplayerplugin"; Description: "Download Media Player Plugin"; GroupDes
 Name: "textviewerplugin"; Description: "Download Text Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "pictureviewerplugin"; Description: "Download Picture Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "byteviewerplugin"; Description: "Download Hex Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "excelviewerplugin"; Description: "Download Excel Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "pdfviewerplugin"; Description: "Download PDF Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "wordviewerplugin"; Description: "Download Word Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}\data\blockchain global"
@@ -119,6 +122,9 @@ Source: "{tmp}\MediaPlayer.zip"; DestDir: "{app}\data\update"; flags: external s
 Source: "{tmp}\TextViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\ImageViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist;
 Source: "{tmp}\ByteViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
+Source: "{tmp}\ExcelViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
+Source: "{tmp}\PDFViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
+Source: "{tmp}\WordViewer.zip"; DestDir: "{app}\data\update"; flags: external skipifsourcedoesntexist; 
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
@@ -467,6 +473,9 @@ begin
     DownloadTask('textviewerplugin', 'https://peernet.org/dl/setup/plugin/TextViewer.zip', 'TextViewer.zip', '');
     DownloadTask('pictureviewerplugin', 'https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
     DownloadTask('byteviewerplugin', 'https://peernet.org/dl/setup/plugin/ByteViewer.zip', 'ByteViewer.zip', '');
+    DownloadTask('excelviewerplugin', 'https://peernet.org/dl/setup/plugin/ExcelViewer.zip', 'ExcelViewer.zip', '');
+    DownloadTask('pdfviewerplugin', 'https://peernet.org/dl/setup/plugin/PDFViewer.zip', 'PDFViewer.zip', '');
+    DownloadTask('wordviewerplugin', 'https://peernet.org/dl/setup/plugin/WordViewer.zip', 'WordViewer.zip', '');
   end;
   if CurPageID = wpFinished then
   begin
