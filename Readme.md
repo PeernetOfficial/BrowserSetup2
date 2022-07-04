@@ -1,20 +1,22 @@
 # General
 This is [Inno Setup](https://jrsoftware.org/isinfo.php) script that generates complete setup for Peernet software.
 The script responsibility:
-- Check if .NET Desktop Runtime 5.0.x is installed.  
+- Check if .NET Desktop Runtime 6.0.x is installed.  
 - If the runtime is missing, the installer will download the runtime from [Official Microsoft](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) website
 - The installer will run downloaded runtime installer
-- Once runtime installation is completed it will proceed to core Peernet installation which includes unpacking of __Peernet Browser__ together with __Backend__ and __Firewall Allow.cmd__ batch file.
+- The installer will download checked plugins from Peernet servers
+- Once runtime installation is completed and plugins downloaded, it will proceed to core Peernet installation which includes unpacking of __Peernet Browser__ together with __Backend__ and __Firewall Allow.cmd__ batch file.
 - At the last step installer will run __Firewall Allow.cmd__ batch file
 
 Downloading of the runtime from setup file is possible thanks to [Inno Download Plugin](https://jrsoftware.org/isinfo.php). 
 It is the set of APIs which use in the script gives ability to download files. For more information install [the plugin](https://drive.google.com/file/d/0Bzw1xBVt0mokWHlicktGUVNXeTA/view?resourcekey=0-zNIx1s76O4jwgCPWjqEsCA) and read the documentation.
 
 ## Compilation
-To compile the script you need to:  
+> Inno Setup Version 6.1 has added support for downloading files without using a third-party tool. Latest Peernet Setup revision uses Download features from Inno Setup 6.1 thus there is no need to install Inno Download Plugin (steps 2-3).
+Although the plugin might be needed for some historical revisions.
+
 1. Download and install [Inno Setup](https://jrsoftware.org/isdl.php)  
 This basically gives ability to compile scripts, although since the script uses downloading features you need to:
-
 2. Install the [Inno Download Plugin](Archive/idpsetup-1.5.1.exe) from the archive folder.
 3. Modify the file `[path]\Inno Setup 6\ISPPBuiltins.iss` by adding following to the end of the file
 ```
@@ -23,6 +25,7 @@ This basically gives ability to compile scripts, although since the script uses 
 4. Open the script in the __Inno Setup Compiler__
 5. Compile.  
 You can compile either by _CTRL + F9_ combination or by _Build > Compile_
+
 
 ## Preparation Checklist
 
