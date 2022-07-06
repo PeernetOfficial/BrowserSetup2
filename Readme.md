@@ -39,7 +39,9 @@ Follow each step before generating a release version for the public.
 
 4. Browser: Compile it using: `dotnet publish -c Release --no-self-contained`
 
-5. Setup: Change the version number in the file `InnoPeernetSetup.iss` in the field `MyAppVersion`
+5. Setup: Update [Files] section in the file `InnoPeernetSetup.iss`. It should list all the files that go to the setup package.
+
+6. Setup: Change the version number in the file `InnoPeernetSetup.iss` in the field `MyAppVersion`
 
 ## Edge Cases
 
