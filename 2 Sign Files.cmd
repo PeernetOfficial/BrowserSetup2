@@ -35,9 +35,6 @@ signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ByteViewer\WPFHexaEditor.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ExcelViewer\Peernet.Browser.Plugins.ExcelViewer.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\ExcelViewer\Peernet.SDK.dll"
 
-signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\HTMLViewer\Peernet.Browser.Plugins.HTMLViewer.dll"
-signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\HTMLViewer\Peernet.SDK.dll"
-
 signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\PDFViewer\Peernet.Browser.Plugins.PDFViewer.dll"
 signtool sign /a /fd SHA256 "%DIRTARGET%\Plugins\PDFViewer\Peernet.SDK.dll"
 
