@@ -34,3 +34,5 @@ cd "..\..\..\Files Release\Plugins"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\Output\Packages\ExcelViewer.zip" "ExcelViewer"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\Output\Packages\PDFViewer.zip" "PDFViewer"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\Output\Packages\WordViewer.zip" "WordViewer"
+
+PAUSE
