@@ -44,7 +44,7 @@ Name: "taskbaricon"; Description: "Pin to &taskbar"; GroupDescription: "{cm:Addi
 Name: "geoipdatabase"; Description: "Download GeoIP database for Peers Map"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "mediaplayerplugin"; Description: "Download Media Player Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "textviewerplugin"; Description: "Download Text Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
-Name: "pictureviewerplugin"; Description: "Download Picture Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
+Name: "imageviewerplugin"; Description: "Download Image Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "byteviewerplugin"; Description: "Download Hex Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "excelviewerplugin"; Description: "Download Excel Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
 Name: "pdfviewerplugin"; Description: "Download PDF Viewer Plugin"; GroupDescription: "{cm:AdditionalIcons}";
@@ -474,7 +474,7 @@ begin
     DownloadTask('geoipdatabase', 'https://peernet.org/dl/setup/GeoIP.zip', 'GeoIP.zip', '');
     DownloadTask('mediaplayerplugin', 'https://peernet.org/dl/setup/plugin/MediaPlayer.zip', 'MediaPlayer.zip', '');
     DownloadTask('textviewerplugin', 'https://peernet.org/dl/setup/plugin/TextViewer.zip', 'TextViewer.zip', '');
-    DownloadTask('pictureviewerplugin', 'https://peernet.org/dl/setup/plugin/PictureViewer.zip', 'PictureViewer.zip', '');
+    DownloadTask('imageviewerplugin', 'https://peernet.org/dl/setup/plugin/ImageViewer.zip', 'ImageViewer.zip', '');
     DownloadTask('byteviewerplugin', 'https://peernet.org/dl/setup/plugin/ByteViewer.zip', 'ByteViewer.zip', '');
     DownloadTask('excelviewerplugin', 'https://peernet.org/dl/setup/plugin/ExcelViewer.zip', 'ExcelViewer.zip', '');
     DownloadTask('pdfviewerplugin', 'https://peernet.org/dl/setup/plugin/PDFViewer.zip', 'PDFViewer.zip', '');
