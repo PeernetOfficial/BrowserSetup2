@@ -248,7 +248,7 @@ begin
   DownloadPage := CreateDownloadPage(SetupMessage(msgWizardPreparing), SetupMessage(msgPreparingDesc), @OnDownloadProgress);
   if NetRuntimeIsMissing() then
   begin
-    DownloadPage.Add('https://download.visualstudio.microsoft.com/download/pr/b395fa18-c53b-4f7f-bf91-6b2d3c43fedb/d83a318111da9e15f5ecebfd2d190e89/dotnet-runtime-6.0.5-win-x64.exe', 'NetRuntimeInstaller.exe', '');
+    DownloadPage.Add('https://download.visualstudio.microsoft.com/download/pr/a6e878eb-d1da-40cb-8b6a-7f5b9390f09c/e4431ce2aa28b6c9956db672209be500/windowsdesktop-runtime-6.0.10-win-x64.exe', 'NetRuntimeInstaller.exe', '');
     DownloadPage.Show;
     DownloadPage.Download;
     DownloadPage.Hide;
