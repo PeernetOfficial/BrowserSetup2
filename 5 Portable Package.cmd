@@ -26,6 +26,15 @@ cd "..\MediaPlayer"
 cd "..\TextViewer"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\..\Output\Packages\TextViewer.zip" "info.ini"
 
+cd "..\ExcelViewer"
+"C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\..\Output\Packages\ExcelViewer.zip" "info.ini"
+
+cd "..\PDFViewer"
+"C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\..\Output\Packages\PDFViewer.zip" "info.ini"
+
+cd "..\WordViewer"
+"C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\..\Output\Packages\WordViewer.zip" "info.ini"
+
 cd "..\..\..\Files Release\Plugins"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\Output\Packages\ByteViewer.zip" "ByteViewer"
 "C:\Program Files\WinRAR\WinRAR.exe" a -afzip "..\..\Output\Packages\ImageViewer.zip" "ImageViewer"
