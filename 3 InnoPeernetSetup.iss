@@ -61,37 +61,37 @@ Name: "{app}\data"
 Source: "Files Release\Application.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\AsyncAwaitBestPractices.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\AsyncAwaitBestPractices.MVVM.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.CodeParser.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Data.Desktop.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Data.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.DataAccess.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Drawing.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Images.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Mvvm.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Map.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Office.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Pdf.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Pdf.v22.1.Drawing.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Printing.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.RichEdit.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Core.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Docking.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.DocumentViewer.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.ExpressionEditor.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Grid.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Grid.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Grid.v22.1.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Layout.v22.1.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.LayoutControl.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Map.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Office.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Printing.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Ribbon.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.RichEdit.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Themes.Office2019Colorful.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Themes.PeernetDarkTheme.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpf.Themes.PeernetLightTheme.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "Files Release\DevExpress.Xpo.v22.1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.CodeParser.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Data.Desktop.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Data.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.DataAccess.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Drawing.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Images.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Mvvm.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Map.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Office.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Pdf.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Pdf.v22.2.Drawing.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Printing.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.RichEdit.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Core.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Docking.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.DocumentViewer.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.ExpressionEditor.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Grid.v22.2.Extensions.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Layout.v22.2.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.LayoutControl.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Map.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Office.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Printing.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Ribbon.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.RichEdit.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.Office2019Colorful.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.PeernetDarkTheme.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpf.Themes.PeernetLightTheme.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Files Release\DevExpress.Xpo.v22.2.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Infrastructure.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Files Release\Microsoft.Extensions.DependencyInjection.dll"; DestDir: "{app}"; Flags: ignoreversion
@@ -148,7 +148,7 @@ Name: "{autoappdata}\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBa
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
 [CustomMessages]
-InstallingDotNetRuntime=Installing .NET 6 Desktop Runtime. This might take a few minutes...
+InstallingDotNetRuntime=Installing .NET 7 Desktop Runtime. This might take a few minutes...
 DotNetRuntimeFailedToLaunch=Failed to launch .NET Runtime Installer with error "%1". Please fix the error then run this installer again.
 DotNetRuntimeFailed1602=.NET Runtime installation was cancelled. This installation can continue, but be aware that this application may not run unless the .NET Runtime installation is completed successfully.
 DotNetRuntimeFailed1603=A fatal error occurred while installing the .NET Runtime. Please fix the error, then run the installer again.
@@ -224,8 +224,8 @@ var
 begin
   Result := True;
 
-  minimumVersion := '6.0.0';
-  maximumExclusiveVersion := '6.1.0';
+  minimumVersion := '7.0.0';
+  maximumExclusiveVersion := '7.1.0';
   registryKey := 'SOFTWARE\WOW6432Node\dotnet\Setup\InstalledVersions\x64\sharedfx\Microsoft.WindowsDesktop.App';
   if RegGetValueNames(HKLM, registryKey, runtimes) then
   begin
@@ -248,7 +248,7 @@ begin
   DownloadPage := CreateDownloadPage(SetupMessage(msgWizardPreparing), SetupMessage(msgPreparingDesc), @OnDownloadProgress);
   if NetRuntimeIsMissing() then
   begin
-    DownloadPage.Add('https://download.visualstudio.microsoft.com/download/pr/a6e878eb-d1da-40cb-8b6a-7f5b9390f09c/e4431ce2aa28b6c9956db672209be500/windowsdesktop-runtime-6.0.10-win-x64.exe', 'NetRuntimeInstaller.exe', '');
+    DownloadPage.Add('https://download.visualstudio.microsoft.com/download/pr/8d4ae76c-10d6-450c-b1c2-76b7b2156dc3/9207c5d5d0b608d8ec0622efa4419ed6/windowsdesktop-runtime-7.0.2-win-x64.exe', 'NetRuntimeInstaller.exe', '');
     DownloadPage.Show;
     DownloadPage.Download;
     DownloadPage.Hide;
