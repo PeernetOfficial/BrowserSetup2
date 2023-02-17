@@ -12,8 +12,8 @@ signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\Serilog.Sinks.Trace.dll"
 signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\AsyncAwaitBestPractices.dll"
 signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\AsyncAwaitBestPractices.MVVM.dll"
 signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\Peernet.SDK.dll"
-signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\DevExpress.Xpf.Themes.PeernetDarkTheme.v22.1.dll"
-signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\DevExpress.Xpf.Themes.PeernetLightTheme.v22.1.dll"
+signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\DevExpress.Xpf.Themes.PeernetDarkTheme.v22.2.dll"
+signtool sign /n "Peernet" /fd SHA256 "%DIRTARGET%\DevExpress.Xpf.Themes.PeernetLightTheme.v22.2.dll"
 
 REM Plugins
 

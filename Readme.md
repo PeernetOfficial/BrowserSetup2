@@ -1,8 +1,8 @@
 # General
 This is [Inno Setup](https://jrsoftware.org/isinfo.php) script that generates complete setup for Peernet software.
 The script responsibility:
-- Check if .NET Desktop Runtime 6.0.x is installed.  
-- If the runtime is missing, the installer will download the runtime from [Official Microsoft](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) website
+- Check if .NET Desktop Runtime 7.0.x is installed.  
+- If the runtime is missing, the installer will download the runtime from [Official Microsoft](https://dotnet.microsoft.com/en-us/download/dotnet/7.0) website
 - The installer will run downloaded runtime installer
 - The installer will download checked plugins from Peernet servers
 - Once runtime installation is completed and plugins downloaded, it will proceed to core Peernet installation which includes unpacking of __Peernet Browser__ together with __Backend__ and __Firewall Allow.cmd__ batch file.
